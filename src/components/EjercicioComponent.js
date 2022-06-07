@@ -5,15 +5,20 @@ export const EjercicioComponent = ({anio}) => {
 
   const [anio_actual, setAnioActual] = useState(anio)
 
-  const cambioAnio = (e, anio_actual)=>{
-    setAnioActual(anio_actual)
+  const cambioAnio = (e)=>{
+    let dato = parseInt(e.target.value)
+    if(Number.isInteger(dato)){
+      setAnioActual(dato)
+    }else{
+      setAnioActual(anio)
+    }
   }
 
   const anioSiguiente = (e)=>{
     setAnioActual(anio + 1)
   }
 
-  const anioActual = (e)=>{
+  const anioAnterior = (e)=>{
     setAnioActual(anio - 1)
   }
 
@@ -30,10 +35,10 @@ export const EjercicioComponent = ({anio}) => {
       <button onClick={(e)=> anioSiguiente(e)}>Año Siguiente</button>
 
       &nbsp;
-      <button onClick={(e)=> anioActual(e)}>Año anterior</button>
+      <button onClick={(e)=> anioAnterior(e)}>Año anterior</button>
 
       &nbsp;
-      <input type="text" onChange={(e)=> cambioAnio(e, e.target.value)} />
+      <input type="text" onChange={(e)=> cambioAnio(e)} />
 
     </div>
   )
@@ -41,5 +46,5 @@ export const EjercicioComponent = ({anio}) => {
 
 
 EjercicioComponent.propTypes = {
-    anio: PropTypes.number.isRequired
+  anio: PropTypes.number.isRequired
 }   
