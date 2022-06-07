@@ -11,7 +11,7 @@ export const MiPrimerEstado = () => {
   return (
     <div>
         <h3>Componente: MiPrimerEstado</h3>
-        <strong>
+        <strong className="label">
             {nombre}
         </strong>
         &nbsp;
@@ -20,7 +20,7 @@ export const MiPrimerEstado = () => {
             Cambiar nombre por fran
         </button>
         &nbsp;
-        <input type="text" onKeyUp={(e) => cambiarNombre(e, e.target.value)} placeholder='Cambia el nombre....'/>
+        <input type="text" onChange={(e) => cambiarNombre(e, e.target.value)} placeholder='Cambia el nombre....'/>
 
     </div>
   )
